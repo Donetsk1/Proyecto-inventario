@@ -1,0 +1,15 @@
+C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\obj\Debug\Proyecto inventario.csproj.AssemblyReference.cache
+C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\obj\Debug\Proyecto inventario.csproj.CoreCompileInputs.cache
+C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\bin\Debug\Proyecto inventario.exe.config
+C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\bin\Debug\Proyecto inventario.exe
+C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\bin\Debug\Proyecto inventario.pdb
+C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\obj\Debug\Proyecto inventario.exe
+C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\obj\Debug\Proyecto inventario.pdb
+C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\bin\Debug\SpreadsheetLight.dll
+C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\bin\Debug\System.Drawing.Common.dll
+C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\bin\Debug\System.IO.Packaging.dll
+C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\bin\Debug\SpreadsheetLight.xml
+C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\bin\Debug\System.IO.Packaging.xml
+C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\obj\Debug\Proyecto.360D642E.Up2Date
