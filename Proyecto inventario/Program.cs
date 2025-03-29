@@ -36,7 +36,7 @@ namespace Proyecto_inventario
                     modificar();
                 break;
                 case 3:
-                    //buscar_un_producto();
+                    buscar_un_producto();
                 break;
                 case 4:
                     GuardarCargarInvent();
@@ -199,13 +199,46 @@ namespace Proyecto_inventario
             }
         }
 
-        /*static void buscar_un_producto()
+        static void buscar_un_producto()
         {
             Console.Clear();
             Console.WriteLine("Buscar un producto por nombre o código");
             Console.WriteLine("\n");
 
-        }*/
+            Console.Write("Ingrese el código o nombre del producto a buscar: ");
+            string criterio = Console.ReadLine();
+
+            string filePath = "datos_de_clientes.txt";
+
+            if (File.Exists(filePath))
+            {
+                string[] lineas = File.ReadAllLines(filePath);
+                bool encontrado = false;
+
+                Console.WriteLine("Resultados de la búsqueda:");
+                foreach (string linea in lineas)
+                {
+                    if (linea.Contains(criterio))
+                    {
+                        Console.WriteLine(linea);
+                        encontrado = true;
+                    }
+                }
+
+                if (!encontrado)
+                {
+                    Console.WriteLine("No se encontró ningún producto con ese nombre.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("El archivo de inventario no existe.");
+            }
+
+            Console.WriteLine("\nPresione cualquier tecla para continuar...");
+            Console.ReadKey();
+        }
+
 
         static void salir() 
         { 
