@@ -39,7 +39,7 @@ namespace Proyecto_inventario
                     //buscar_un_producto();
                 break;
                 case 4:
-
+                    GuardarCargarInvent();
                 break;
                 case 5:
                     salir();
@@ -49,11 +49,13 @@ namespace Proyecto_inventario
                 break;
             }
         }
+
+        static string codigo, nombre;
+        static int stock;
+        static double precio;
         static void agregar_producto()
         {
-            string codigo, nombre;
-            int stock;
-            double precio;
+            
             string desicion;
             
             Console.Clear();
@@ -144,6 +146,59 @@ namespace Proyecto_inventario
             Console.WriteLine("El archivo ha sido modificado.");
         }
 
+        static void GuardarCargarInvent()
+        {
+            int opcion;
+            string filePath = "datos_de_clientes.txt";
+
+            Console.WriteLine("Que desea realizar?");
+            Console.WriteLine("1-Guardar Archivo Inventario");//Esta opcion no se utiliza
+            Console.WriteLine("2-Cargar Archivo Inventario");
+
+            opcion = int.Parse(Console.ReadLine());
+
+            switch (opcion)
+            {
+                case 1:
+                    GuardarDatos(filePath);
+                    break;
+                case 2:
+                    CargarDatos(filePath);
+                    break;
+                default:
+                    Console.WriteLine("Opción no válida.");
+                    break;
+            }
+
+        }
+
+        //Esta funcion GuardarDatos esta implementada en agregar producto con steamwriter por lo que es inservible
+        static void GuardarDatos(string filePath)
+        {
+
+            string datos = codigo;
+
+            File.WriteAllText(filePath, datos);
+            Console.WriteLine("Datos guardados correctamente.");
+        }
+        /////////////////////////////////////////////////////////////////////////
+        
+        static void CargarDatos(string filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                string contenido = File.ReadAllText(filePath);
+                Console.WriteLine("Datos cargados: ");
+                Console.WriteLine("Codigo / Nombre  / Precio  / Stock ");
+                Console.WriteLine("\n");
+                Console.WriteLine(contenido);
+            }
+            else
+            {
+                Console.WriteLine("El archivo no existe.");
+            }
+        }
+
         /*static void buscar_un_producto()
         {
             Console.Clear();
@@ -151,7 +206,7 @@ namespace Proyecto_inventario
             Console.WriteLine("\n");
 
         }*/
-        
+
         static void salir() 
         { 
             Environment.Exit(0);

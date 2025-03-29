@@ -13,3 +13,18 @@ C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\bin\Debug\Docume
 C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\bin\Debug\SpreadsheetLight.xml
 C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\bin\Debug\System.IO.Packaging.xml
 C:\Users\Ivan\Documents\Proyecto inventario\Proyecto inventario\obj\Debug\Proyecto.360D642E.Up2Date
+E:\Repos Github\Proyecto-inventario\Proyecto inventario\bin\Debug\Proyecto inventario.exe.config
+E:\Repos Github\Proyecto-inventario\Proyecto inventario\bin\Debug\Proyecto inventario.exe
+E:\Repos Github\Proyecto-inventario\Proyecto inventario\bin\Debug\Proyecto inventario.pdb
+E:\Repos Github\Proyecto-inventario\Proyecto inventario\bin\Debug\DocumentFormat.OpenXml.dll
+E:\Repos Github\Proyecto-inventario\Proyecto inventario\bin\Debug\SpreadsheetLight.dll
+E:\Repos Github\Proyecto-inventario\Proyecto inventario\bin\Debug\System.Drawing.Common.dll
+E:\Repos Github\Proyecto-inventario\Proyecto inventario\bin\Debug\System.IO.Packaging.dll
+E:\Repos Github\Proyecto-inventario\Proyecto inventario\bin\Debug\DocumentFormat.OpenXml.xml
+E:\Repos Github\Proyecto-inventario\Proyecto inventario\bin\Debug\SpreadsheetLight.xml
+E:\Repos Github\Proyecto-inventario\Proyecto inventario\bin\Debug\System.IO.Packaging.xml
+E:\Repos Github\Proyecto-inventario\Proyecto inventario\obj\Debug\Proyecto inventario.csproj.AssemblyReference.cache
+E:\Repos Github\Proyecto-inventario\Proyecto inventario\obj\Debug\Proyecto inventario.csproj.CoreCompileInputs.cache
+E:\Repos Github\Proyecto-inventario\Proyecto inventario\obj\Debug\Proyecto.360D642E.Up2Date
+E:\Repos Github\Proyecto-inventario\Proyecto inventario\obj\Debug\Proyecto inventario.exe
+E:\Repos Github\Proyecto-inventario\Proyecto inventario\obj\Debug\Proyecto inventario.pdb
