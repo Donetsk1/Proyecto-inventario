@@ -1,4 +1,1 @@
 
-123456789	tatarstan	$456	2
-26121991	bashkortostan	$56	123
-7977978	bashar	$232	5656
