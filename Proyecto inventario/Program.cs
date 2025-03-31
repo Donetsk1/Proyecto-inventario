@@ -9,46 +9,58 @@ namespace Proyecto_inventario
 {
     internal class Program
     {
+        static List<string> inventario = new List<string>(); // Lista para manejar el inventario en memoria
+        static string filePath = "datos_de_clientes.txt";
+
         static void Main(string[] args)
         {
             int opcion;
 
             Console.Title = "Inventario";
 
-            Console.WriteLine("Inventario");
-            Console.WriteLine("\n");
-            Console.WriteLine("Agregar un nuevo producto..............................1");
-            Console.WriteLine("Modificar datos de un producto.........................2");
-            Console.WriteLine("Buscar un producto por nombre o código.................3");
-            Console.WriteLine("Guardar y cargar inventario desde un archivo...........4");
-            Console.WriteLine("Salir del sistema......................................5");
-            Console.WriteLine("\n");
-            Console.Write("eliga una opcion...");
-
-            opcion = int.Parse(Console.ReadLine());
-
-            switch (opcion)
+            do
             {
-                case 1:
-                    agregar_producto();
-                break;
-                case 2:
-                    modificar();
-                break;
-                case 3:
-                    buscar_un_producto();
-                break;
-                case 4:
-                    GuardarCargarInvent();
-                break;
-                case 5:
-                    salir();
-                break;
-                default:
-                    Console.WriteLine("introduzca una opcion valida!!!");
-                break;
+                Console.Clear();
+                Console.WriteLine("Inventario");
+                Console.WriteLine("\n");
+                Console.WriteLine("Agregar un nuevo producto..............................(1)");
+                Console.WriteLine("Modificar datos de un producto.........................(2)");
+                Console.WriteLine("Buscar un producto por nombre o código.................(3)");
+                Console.WriteLine("Cargar inventario desde un archivo.....................(4)");
+                Console.WriteLine("Salir del sistema......................................(5)");
+                Console.WriteLine("\n");
+                Console.Write("eliga una opcion...");
+
+                opcion = int.Parse(Console.ReadLine());
+
+                switch (opcion)
+                {
+                    case 1:
+                        agregar_producto();
+                        break;
+                    case 2:
+                        modificar();
+                        break;
+                    case 3:
+                        buscar_un_producto();
+                        break;
+                    case 4:
+                        GuardarCargarInvent();
+                        break;
+                    case 5:
+                        salir();
+                        break;
+                    default:
+                        Console.WriteLine("\n");
+                        Console.Write("introduzca una opcion valida!!!");
+                        break;
+                }
+                Console.ReadKey();
             }
+            while (opcion != 5);
         }
+
+        //agregar un producto a un archivo
 
         static string codigo, nombre;
         static int stock;
@@ -84,19 +96,25 @@ namespace Proyecto_inventario
                     archivo.Close();
                     Console.WriteLine("\n");
                     Console.WriteLine("se ha guardado el producto!");
-                    Console.ReadKey();
+                    Console.WriteLine("\n");
+                    Console.Write("presione una tecla para continuar...");
+                    return;
                 }
                 else if(desicion == "n" || desicion == "N")
                 {
                     Console.WriteLine("\n");
                     Console.WriteLine("se ha cancelado la operacion...");
-                    Console.ReadKey();
+                    Console.WriteLine("\n");
+                    Console.Write("presione una tecla para continuar...");
+                    return;
                 }
                 else
                 {
                     Console.WriteLine("\n");
                     Console.WriteLine("solo puede elegir entre S o N");
-                    Console.ReadKey();
+                    Console.WriteLine("\n");
+                    Console.Write("presione una tecla para continuar...");
+                    return;
                 }
 
             }
@@ -104,100 +122,70 @@ namespace Proyecto_inventario
             {
                 Console.WriteLine("\n");
                 Console.WriteLine("ingrese un valor valido");
-                Console.ReadKey();
+                Console.WriteLine("\n");
+                Console.Write("presione una tecla para continuar...");
+                return;
             }
         }
+
+        //modificacion de un producto
 
         static void modificar()
         {
-            Console.Clear();
-            Console.WriteLine("Modificar datos de un producto");
-            Console.WriteLine("\n");
+            /*Console.Clear();
+            Console.WriteLine("Modificar Producto");
 
-            TextReader leerarchivo = new StreamReader("datos_de_clientes.txt");
-            Console.WriteLine(leerarchivo.ReadToEnd());
-
-            //int opcion_modificar;
-            
-            
-
-            Console.WriteLine("Que desea modificar?");
-            Console.WriteLine("\n");
-            Console.WriteLine("codigo............................1");
-            Console.WriteLine("producto..........................2");
-            Console.WriteLine("precio............................3");
-            Console.WriteLine("stock.............................4");
-            Console.WriteLine("\n");
-            Console.Write("eliga una opcion ");
-
-            string filePath = "datos_de_clientes.txt";
-
-            Console.WriteLine("Ingrese la palabra que desea reemplazar:");
-            string palabraOriginal = Console.ReadLine();
-            Console.WriteLine("Ingrese la nueva palabra para reemplazar:");
-            string nuevaPalabra = Console.ReadLine();
-
-
-            string contenido = File.ReadAllText(filePath);
-            string contenidoModificado = contenido.Replace(palabraOriginal, nuevaPalabra);
-
-            File.WriteAllText(filePath, contenidoModificado);
-
-            Console.WriteLine("El archivo ha sido modificado.");
-        }
-
-        static void GuardarCargarInvent()
-        {
-            int opcion;
-            string filePath = "datos_de_clientes.txt";
-
-            Console.WriteLine("Que desea realizar?");
-            Console.WriteLine("1-Guardar Archivo Inventario");//Esta opcion no se utiliza
-            Console.WriteLine("2-Cargar Archivo Inventario");
-
-            opcion = int.Parse(Console.ReadLine());
-
-            switch (opcion)
+            if (inventario.Count == 0)
             {
-                case 1:
-                    GuardarDatos(filePath);
-                    break;
-                case 2:
-                    CargarDatos(filePath);
-                    break;
-                default:
-                    Console.WriteLine("Opción no válida.");
-                    break;
-            }
-
-        }
-
-        //Esta funcion GuardarDatos esta implementada en agregar producto con steamwriter por lo que es inservible
-        static void GuardarDatos(string filePath)
-        {
-
-            string datos = codigo;
-
-            File.WriteAllText(filePath, datos);
-            Console.WriteLine("Datos guardados correctamente.");
-        }
-        /////////////////////////////////////////////////////////////////////////
-        
-        static void CargarDatos(string filePath)
-        {
-            if (File.Exists(filePath))
-            {
-                string contenido = File.ReadAllText(filePath);
-                Console.WriteLine("Datos cargados: ");
-                Console.WriteLine("Codigo / Nombre  / Precio  / Stock ");
+                Console.WriteLine("No hay productos en el inventario.");
                 Console.WriteLine("\n");
-                Console.WriteLine(contenido);
+                Console.Write("presione una tecla para continuar...");
+                return;
             }
-            else
+
+            Console.Write("Ingrese el código o nombre del producto a modificar: ");
+            string criterio = Console.ReadLine().Trim();
+            int index = inventario.FindIndex(p => p.IndexOf(criterio, StringComparison.OrdinalIgnoreCase) >= 0);
+
+            if (index == -1)
             {
-                Console.WriteLine("El archivo no existe.");
+                Console.WriteLine("Producto no encontrado.");
+                Console.WriteLine("\n");
+                Console.Write("presione una tecla para continuar...");
+                return;
             }
+
+            Console.WriteLine($"Producto encontrado: {inventario[index]}");
+
+            Console.Write("Nuevo nombre: ");
+            string nuevoNombre = Console.ReadLine().Trim();
+            Console.Write("Nuevo precio: ");
+            if (!double.TryParse(Console.ReadLine(), out double nuevoPrecio))
+            {
+                Console.WriteLine("Precio inválido.");
+                Console.WriteLine("\n");
+                Console.Write("presione una tecla para continuar...");
+                return;
+            }
+            Console.Write("Nuevo stock: ");
+            if (!int.TryParse(Console.ReadLine(), out int nuevoStock))
+            {
+                Console.WriteLine("Stock inválido.");
+                Console.WriteLine("\n");
+                Console.Write("presione una tecla para continuar...");
+                return;
+            }
+
+            string[] datos = inventario[index].Split('\t');
+            inventario[index] = $"{datos[0]}\t{nuevoNombre}\t${nuevoPrecio}\t{nuevoStock}";
+
+            Console.WriteLine("\nProducto modificado correctamente.");
+            Console.WriteLine("\n");
+            Console.Write("presione una tecla para continuar...");
+            */
         }
+
+        //busqueda de un articulo
 
         static void buscar_un_producto()
         {
@@ -228,17 +216,66 @@ namespace Proyecto_inventario
                 if (!encontrado)
                 {
                     Console.WriteLine("No se encontró ningún producto con ese nombre.");
+                    Console.WriteLine("\n");
+                    Console.Write("presione una tecla para continuar...");
                 }
             }
             else
             {
                 Console.WriteLine("El archivo de inventario no existe.");
+                Console.WriteLine("\n");
+                Console.Write("presione una tecla para continuar...");
             }
-
             Console.WriteLine("\nPresione cualquier tecla para continuar...");
             Console.ReadKey();
         }
 
+        //cargar inventario de un archivo
+
+        static void GuardarCargarInvent()
+        {
+            int opcion;
+            string filePath = "datos_de_clientes.txt";
+
+            Console.Clear();
+
+            if (File.Exists(filePath))
+            {
+                string contenido = File.ReadAllText(filePath);
+                Console.WriteLine("Datos cargados: ");
+                Console.WriteLine("Codigo / Nombre  / Precio  / Stock ");
+                Console.WriteLine("\n");
+                Console.WriteLine(contenido);
+                Console.WriteLine("\n");
+                Console.Write("presione una tecla para continuar...");
+                return;
+            }
+            else
+            {
+                Console.WriteLine("El archivo no existe.");
+                Console.Write("presione una tecla para continuar...");
+                Console.ReadKey();
+                return;
+            }
+        }
+
+        //Esta funcion GuardarDatos esta implementada en agregar producto con steamwriter por lo que es inservible
+        /*static void GuardarDatos(string filePath)
+        {
+
+            string datos = codigo;
+
+            File.WriteAllText(filePath, datos);
+            Console.WriteLine("Datos guardados correctamente.");
+        }*/
+        /////////////////////////////////////////////////////////////////////////
+        
+        /*static void CargarDatos(string filePath)
+        {
+            
+        }*/
+
+        //salida del programa
 
         static void salir() 
         { 
