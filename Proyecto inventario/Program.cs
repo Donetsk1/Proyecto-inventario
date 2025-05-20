@@ -9,7 +9,7 @@ namespace Proyecto_inventario
 {
     internal class Program
     {
-        static List<string> inventario = new List<string>(); // Lista para manejar el inventario en memoria
+        static List<string> inventario = new List<string>();
         static string filePath = "datos_de_clientes.txt";
 
         static void Main(string[] args)
@@ -92,8 +92,9 @@ namespace Proyecto_inventario
                 {
                     StreamWriter archivo = File.AppendText("datos_de_clientes.txt");
 
-                    archivo.WriteLine(codigo + "\t" + nombre + "\t" + "$" + precio + "\t" + stock);
+                    archivo.WriteLine(codigo + ", " + nombre + ", " + "$" + precio + ", " + stock);
                     archivo.Close();
+                    inventario.Add(codigo + ", " + nombre + ", " + "$" + precio + ", " + stock);
                     Console.WriteLine("\n");
                     Console.WriteLine("se ha guardado el producto!");
                     Console.WriteLine("\n");
@@ -132,14 +133,14 @@ namespace Proyecto_inventario
 
         static void modificar()
         {
-            /*Console.Clear();
+            Console.Clear();
             Console.WriteLine("Modificar Producto");
 
             if (inventario.Count == 0)
             {
                 Console.WriteLine("No hay productos en el inventario.");
                 Console.WriteLine("\n");
-                Console.Write("presione una tecla para continuar...");
+                Console.Write("Presione una tecla para continuar...");
                 return;
             }
 
@@ -151,7 +152,7 @@ namespace Proyecto_inventario
             {
                 Console.WriteLine("Producto no encontrado.");
                 Console.WriteLine("\n");
-                Console.Write("presione una tecla para continuar...");
+                Console.Write("Presione una tecla para continuar...");
                 return;
             }
 
@@ -164,7 +165,7 @@ namespace Proyecto_inventario
             {
                 Console.WriteLine("Precio inválido.");
                 Console.WriteLine("\n");
-                Console.Write("presione una tecla para continuar...");
+                Console.Write("Presione una tecla para continuar...");
                 return;
             }
             Console.Write("Nuevo stock: ");
@@ -172,17 +173,22 @@ namespace Proyecto_inventario
             {
                 Console.WriteLine("Stock inválido.");
                 Console.WriteLine("\n");
-                Console.Write("presione una tecla para continuar...");
+                Console.Write("Presione una tecla para continuar...");
                 return;
             }
 
-            string[] datos = inventario[index].Split('\t');
-            inventario[index] = $"{datos[0]}\t{nuevoNombre}\t${nuevoPrecio}\t{nuevoStock}";
+            inventario.RemoveAt(index);
+            inventario.Add(codigo + ", " + nuevoNombre + ", " + "$" + nuevoPrecio + ", " + nuevoStock);
+            //string[] datos = inventario[index].Split('\t');
+            //inventario[index] = $"{datos[0]}\t{nuevoNombre}\t${nuevoPrecio}\t{nuevoStock}";
+
+            // Guardar la lista actualizada en el archivo
+            File.WriteAllLines(filePath, inventario);
 
             Console.WriteLine("\nProducto modificado correctamente.");
             Console.WriteLine("\n");
-            Console.Write("presione una tecla para continuar...");
-            */
+            Console.Write("Presione una tecla para continuar...");
+
         }
 
         //busqueda de un articulo
@@ -204,6 +210,7 @@ namespace Proyecto_inventario
                 bool encontrado = false;
 
                 Console.WriteLine("Resultados de la búsqueda:");
+                Console.WriteLine("\n");
                 foreach (string linea in lineas)
                 {
                     if (linea.Contains(criterio))
@@ -245,7 +252,7 @@ namespace Proyecto_inventario
                 Console.WriteLine("Datos cargados: ");
                 Console.WriteLine("Codigo / Nombre  / Precio  / Stock ");
                 Console.WriteLine("\n");
-                Console.WriteLine(contenido);
+                Console.WriteLine(contenido.Trim());
                 Console.WriteLine("\n");
                 Console.Write("presione una tecla para continuar...");
                 return;
@@ -258,24 +265,6 @@ namespace Proyecto_inventario
                 return;
             }
         }
-
-        //Esta funcion GuardarDatos esta implementada en agregar producto con steamwriter por lo que es inservible
-        /*static void GuardarDatos(string filePath)
-        {
-
-            string datos = codigo;
-
-            File.WriteAllText(filePath, datos);
-            Console.WriteLine("Datos guardados correctamente.");
-        }*/
-        /////////////////////////////////////////////////////////////////////////
-        
-        /*static void CargarDatos(string filePath)
-        {
-            
-        }*/
-
-        //salida del programa
 
         static void salir() 
         { 
